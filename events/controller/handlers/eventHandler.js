@@ -2,8 +2,14 @@ const EventService =  require('../../Service/EventService');
 
 const fetchEventList = (req, res) => {
     let payload = {};
-    EventService.fetchEventList(payload, (success) => {
-        
+    EventService.fetchEventList(payload, (error, data) => {
+        if (error) {
+
+        } else if (!data) {
+
+        } else {
+
+        }
     });
 };
 
