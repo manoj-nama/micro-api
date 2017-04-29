@@ -1,5 +1,5 @@
 const config = require('./../config/index')
-    , require = require('request');
+    , request = require('request');
 
 module.exports = {
     isAuthenticated : (authenticationData, callback) => {
