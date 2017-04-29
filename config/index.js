@@ -5,7 +5,7 @@ const config = {
     password: "igdefault"
   },
   authServer:{
-    baseUrl: ''
+    baseUrl: 'https://micro-auth.herokuapp.com/'
   }
 };
 
