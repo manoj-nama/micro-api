@@ -3,6 +3,9 @@ const config = {
     host: "ds123371.mlab.com:23371/heroku_x1gzz76r",
     user: "microservice-integration",
     password: "igdefault"
+  },
+  authServer:{
+    baseUrl: ''
   }
 };
 

@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 8888;
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config');
-const AuthService = require('./auth/auth.service');
+const AuthController = require('./auth/auth.controller');
 
 
 app.use((req, res, next) => {
@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({
 
 // setup routing handlers
 var routes = require('./events/events.controller')();
-app.use('/', AuthService.isAuthenticated, routes);
+app.use('/', AuthController.isAuthenticated, routes);
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
