@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 8888;
+const bodyParser = require('body-parser');
 
 app.use((req, res, next) => {
   console.log(req.method + ": " + req.url);
@@ -8,7 +9,6 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json({limit: '16mb'}));
-app.use(userAgent.express());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
