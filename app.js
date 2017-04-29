@@ -7,6 +7,12 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(bodyParser.json({limit: '16mb'}));
+app.use(userAgent.express());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
