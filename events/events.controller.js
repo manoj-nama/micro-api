@@ -4,15 +4,25 @@ const express = require('express')
     , ResponseHandler =  require('../util/ResponseHandler');
 
 const fetchEventList = (req, res) => {
-    let payload = {};
-    if(req.params('lng')){
-        payload['lng'] = req.params('lng');
+    let payload = {
+        query: {}
+    };
+    if(req.params['lng']){
+        payload.query['lng'] = req.params['lng'];
     }
-    if(req.params('lat')){
-        payload['lat'] = req.params('lat');
+    if(req.params['lat']){
+        payload.query['lat'] = req.params['lat'];
     }
-    if(req.params('date')){
-        payload['date'] = req.params('date');
+    if(req.params['date']){
+        payload.query['date'] = req.params['date'];
+    }
+    if(req.params['limit']) {
+        const val = parseInt(req.params['limit'], 10);
+        payload.limit = val > 20 ? 20 : val;
+    }
+    if(req.params['skip']) {
+        const val = parseInt(req.params['skip'], 10);
+        payload.skip = val;
     }
     EventService.fetchEventList(payload, (error, data) => {
         if (error) {
