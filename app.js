@@ -5,7 +5,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config');
 const AuthController = require('./auth/auth.controller');
+const cors = require('cors');
 
+app.use(cors());
 
 app.use((req, res, next) => {
   console.log(req.method + ": " + req.url);

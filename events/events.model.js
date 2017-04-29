@@ -13,7 +13,10 @@ const schema = new eventSchema({
     openEvent: { type: Boolean },
     source: { type: String },
     date: { type: Number },
-    charges: { type: String }
+    charges: { type: String },
+    description: {type: String},
+    phone: {type: String},
+    venue: {type: String}
 });
 
 schema.index({createdAt: 1});

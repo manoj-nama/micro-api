@@ -5,8 +5,10 @@ const express = require('express')
     ;
 
 const isAuthenticated = (req, res) => {
+    let token = req.Headers["Authorization"];
+    token = token.split(' ')[1];
     let payload = {
-        jwtToken: req.params['jwtToken']
+        jwtToken: token
     };
     AuthService.isAuthenticated(payload, (error, response, body) => {
         if (error || !response.isAuthenticated) {
