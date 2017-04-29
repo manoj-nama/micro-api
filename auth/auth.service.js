@@ -1,10 +1,10 @@
-const config = require('./../config/index')
+const configObj = require('./../config/index')
     , request = require('request');
 
 module.exports = {
     isAuthenticated : (authenticationData, callback) => {
         var options = {
-            url: config.authServer.baseUrl + '', //URL to hit
+            url: configObj.config.authServer.baseUrl + '', //URL to hit
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
