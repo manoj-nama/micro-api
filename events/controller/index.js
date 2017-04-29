@@ -1,19 +1,21 @@
-var express = require('express')
-    , router = express.Router()
-    , eventHandler = null;
+const express = require('express')
+    , router = express.Router();
+let eventHandler = null;
+import AuthService from '../../Service/AuthService';
+
 
 function setRoutes() {
-    router.get('/', eventHandler.eventList);
+    router.get('/', AuthService.isAuthenticated, eventHandler.fetchEventList);
 }
 
- module.exports = function (cfg) {
+ module.exports = (cfg) => {
      if (typeof cfg === 'undefined') {
          throw new Error('No config object passed to router.');
      } else if (typeof cfg.models === 'undefined') {
          throw new Error('No models passed to router.');
      }
      
-     eventHandler = require('./handlers')({models: cfg.models})
+     eventHandler = require('./handlers')({models: cfg.models});
      setRoutes();
      return router;
- }
+ };
