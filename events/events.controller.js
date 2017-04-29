@@ -1,4 +1,6 @@
-const EventService =  require('../../Service/EventService');
+const express = require('express')
+    , router = express.Router()
+    , EventService =  require('./events.service');
 
 const fetchEventList = (req, res) => {
     let payload = {};
@@ -13,6 +15,7 @@ const fetchEventList = (req, res) => {
     });
 };
 
-module.exports = {
-    fetchEventList
-};
+module.exports = function () {
+    router.get('/', fetchEventList);
+    return router;
+}

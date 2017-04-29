@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 8888;
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config');
-const AuthService = require('../../Service/AuthService');
+const AuthService = require('./auth/auth.service');
 
 
 app.use((req, res, next) => {
@@ -13,7 +13,6 @@ app.use((req, res, next) => {
 });
 
 mongoose.connect(config.mongo_uri);
-var models = require('./events/models');
 
 app.use(bodyParser.json({limit: '16mb'}));
 app.use(bodyParser.urlencoded({
@@ -21,7 +20,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // setup routing handlers
-var routes = require('./events/controller')({ models });
+var routes = require('./events/events.controller')();
 app.use('/', AuthService.isAuthenticated, routes);
 
 app.listen(PORT, () => {

@@ -1,4 +1,4 @@
-const Event = require('../models/Event/schema');
+const EventModel = require('./events.model');
 
 module.exports = {
     fetchEventList : (payload, CB) => {
