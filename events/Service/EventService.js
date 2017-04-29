@@ -1,4 +1,4 @@
-import Event from '../models/Event/schema';
+const Event = require('../models/Event/schema');
 
 module.exports = {
     fetchEventList : (payload, CB) => {

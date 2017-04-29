@@ -1,11 +1,10 @@
 const express = require('express')
     , router = express.Router();
 let eventHandler = null;
-import AuthService from '../../Service/AuthService';
 
 
 function setRoutes() {
-    router.get('/', AuthService.isAuthenticated, eventHandler.fetchEventList);
+    router.get('/', eventHandler.fetchEventList);
 }
 
  module.exports = (cfg) => {

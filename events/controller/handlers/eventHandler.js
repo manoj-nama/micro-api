@@ -1,4 +1,4 @@
-import EventService from '../../Service/EventService';
+const EventService =  require('../../Service/EventService');
 
 const fetchEventList = (req, res) => {
     let payload = {};
