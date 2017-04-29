@@ -18,24 +18,10 @@ const formatFailure = (resource, code) => {
 
 const MESSAGES = {
     AUTH: {
-        "1001": "",
-        "1002": "",
-        "1003": ""
+        "1001": "Unable to Authenticate User."
     },
-    FB: {
-        "2001": "",
-        "2002": "",
-        "2003": ""
-    },
-    MEETUP: {
-        "3001": "",
-        "3002": "",
-        "3003": ""
-    },
-    TWITTER: {
-        "4001": "",
-        "4002": "",
-        "4003": ""
+    EVENT: {
+        "2001": "No results found."
     },
     CUSTOM: {
         "400": "Something went wrong."
